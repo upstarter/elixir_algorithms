@@ -68,3 +68,33 @@ defmodule Adj do
 end
 
 Adj.greatest_product(j)
+
+~S"""
+Count of non-empty substrings is n*(n+1)/2
+
+If we include empty string also as substring, the count becomes n*(n+1)/2 + 1
+
+How does above formula work?
+
+Number of substrings of length one is n (We can choose any of the n characters)
+Number of substrings of length two is n-1 (We can choose any of the n-1 pairs formed by adjacent)
+Number of substrings of length three is n-2
+(We can choose any of the n-2 triplets formed by adjacent)
+In general, mumber of substrings of length k is n-k+1 where 1 <= k <= n
+Total number of substrings of all lengths from 1 to n =
+n + (n-1) + (n-2) + (n-3) + … 2 + 1
+= n * (n + 1)/2
+"""
+
+# Python3 program to count number
+# of substrings of a string
+
+~S"""
+def countNonEmptySubstr(str):
+    n = len(str);
+    return int(n * (n + 1) / 2);
+
+# driver code
+s = "abcde";
+print (countNonEmptySubstr(s));
+"""
