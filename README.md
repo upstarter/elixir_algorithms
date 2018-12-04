@@ -2,11 +2,11 @@
 
 ## TODO:
 
-### Protocols
+## Protocols
 
 Gossip Protocol
 
-### Algorithms
+## Algorithms
 
 Multi-Armed Bandit with Strategic Arms
 
