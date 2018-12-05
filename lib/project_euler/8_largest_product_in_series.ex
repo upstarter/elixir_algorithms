@@ -50,55 +50,25 @@ series = ~S"""
 71636269561882670428252483600823257530420752963450
 """
 
+# validate & sanitize
 i =
   series
   |> String.replace("\n", "")
   |> String.split("", trim: true)
 
-j =
-  Enum.map(i, fn k ->
-    k
-    |> String.to_integer()
+# convert to ints
+j = Enum.map(i, fn k -> String.to_integer(k) end)
+
+# divide to conquer
+k = Enum.chunk_every(j, 13, 1)
+
+# map reduce sequences
+l =
+  Enum.map(k, fn seq ->
+    Enum.reduce(seq, fn x, acc -> x * acc end)
   end)
 
-defmodule Adj do
-  def greatest_product(<<prefix::binary-size(13), ending::binary>>) do
-    IO.puts("Hello, #{prefix}#{ending}")
-  end
-end
+IO.inspect(l)
 
-# Adj.greatest_product(j)
-
-~S"""
-Count of non-empty substrings is n*(n+1)/2
-
-If we include empty string also as substring, the count becomes n*(n+1)/2 + 1
-
-How does above formula work?
-
-Number of substrings of length one is n (We can choose any of the n characters)
-Number of substrings of length two is n-1 (We can choose any of the n-1 pairs formed by adjacent)
-Number of substrings of length three is n-2
-(We can choose any of the n-2 triplets formed by adjacent)
-In general, mumber of substrings of length k is n-k+1 where 1 <= k <= n
-Total number of substrings of all lengths from 1 to n =
-n + (n-1) + (n-2) + (n-3) + … 2 + 1
-= n * (n + 1)/2
-"""
-
-# Python3 program to count number
-# of substrings of a string
-
-~S"""
-def countNonEmptySubstr(str):
-    n = len(str);
-    return int(n * (n + 1) / 2);
-
-# driver code
-s = "abcde";
-print (countNonEmptySubstr(s));
-"""
-
-n = length(j)
-result = n * (n + 1) / 2
-IO.puts(result)
+# take max sequence
+IO.inspect(Enum.max(l))
