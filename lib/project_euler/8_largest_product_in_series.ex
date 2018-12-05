@@ -67,7 +67,7 @@ defmodule Adj do
   end
 end
 
-Adj.greatest_product(j)
+# Adj.greatest_product(j)
 
 ~S"""
 Count of non-empty substrings is n*(n+1)/2
@@ -98,3 +98,7 @@ def countNonEmptySubstr(str):
 s = "abcde";
 print (countNonEmptySubstr(s));
 """
+
+n = length(j)
+result = n * (n + 1) / 2
+IO.puts(result)
