@@ -1,5 +1,11 @@
 # ElixirAlgorithms
 
+## DONE:
+
+Sorting
+
+Random Search
+
 ## TODO:
 
 ## Algorithms
@@ -7,8 +13,6 @@
 Multi-Armed Bandit with Strategic Arms
 
 ### Stochastic
-
-Random Search
 
 Adaptive Random Search
 
