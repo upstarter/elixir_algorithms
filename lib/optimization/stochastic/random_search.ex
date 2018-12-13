@@ -23,10 +23,12 @@ defmodule RandomSearch do
     candidate = Map.put(candidate, :cost, objective_function(candidate[:vector]))
     best = if best == nil or candidate[:cost] < best[:cost], do: candidate, else: best
 
+    IO.inspect("Iteration #{max_iter}, best=#{best[:cost]}")
+
     do_search(search_space, candidate, max_iter - 1, best)
   end
 
-  def do_search(search_space, candidate, max_iter, best) when max_iter == 0, do: best
+  def do_search(search_space, candidate, max_iter, best) when max_iter < 1, do: best
 end
 
 # problem configuration
