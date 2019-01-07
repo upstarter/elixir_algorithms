@@ -6,6 +6,8 @@ Sorting
 
 Random Search
 
+Adaptive Random Search
+
 ## TODO:
 
 ## Algorithms
@@ -13,8 +15,6 @@ Random Search
 Multi-Armed Bandit with Strategic Arms
 
 ### Stochastic
-
-Adaptive Random Search
 
 Stochastic Hill Climbing
 

@@ -1,0 +1,2 @@
+defmodule MABSA do
+end

@@ -24,7 +24,11 @@ defmodule Fibonacci do
   end
 end
 
-# Benchee.run(%{
-#   "Tail Call Optimized Fibonacci" => fn -> TCOFibonacci.fib(40) end,
-#   "Sequence Fibonacci" => fn -> Fibonacci.find(40) end
-# })
+# mix run fibonacci.ex
+Benchee.run(%{
+  "Tail Call Optimized Fibonacci" => fn -> TCOFibonacci.fib(40) end,
+  "Sequence Fibonacci" => fn -> Fibonacci.find(40) end
+})
+
+IO.puts(TCOFibonacci.fib(25))
+IO.inspect(Fibonacci.find(25))

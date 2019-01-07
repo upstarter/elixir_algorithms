@@ -9,3 +9,5 @@ defmodule BubbleSort do
   def bsort_iter([x, y | t]), do: [x | bsort_iter([y | t])]
   def bsort_iter(list), do: list
 end
+
+IO.inspect(ParallelMergeSort.sort([1, 6, 3, 4, 2, 5, 20, 14, 13, 7, 10, 8]))

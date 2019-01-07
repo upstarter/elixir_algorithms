@@ -1,4 +1,4 @@
-defmodule ParallelMergesort do
+defmodule ParallelMergeSort do
   def merge(list1, list2, acc \\ [])
   def merge([], [], acc), do: acc
   def merge([], list, acc), do: acc ++ list
@@ -26,7 +26,7 @@ defmodule ParallelMergesort do
   @doc """
     Sorts the numbers
 
-    iex> ParallelMergesort.sort([5, 4, 3, 2, 1])
+    iex> ParallelMergeSort.sort([5, 4, 3, 2, 1])
     [1, 2, 3, 4, 5]
   """
   def sort([]), do: []
@@ -38,11 +38,11 @@ defmodule ParallelMergesort do
   end
 
   def psort(parent_id, []) do
-    send(parent_id, {self, []})
+    send(parent_id, {self(), []})
   end
 
   def psort(parent_id, [a]) do
-    send(parent_id, {self, [a]})
+    send(parent_id, {self(), [a]})
   end
 
   def psort(parent_id, list) do
@@ -50,9 +50,9 @@ defmodule ParallelMergesort do
       split(list)
       |> Enum.map(fn half ->
         # dispatch mergesort on the half to a
-        # spawned version of itself
+        # spawned version of itself()
         # IO.inspect(half)
-        spawn_link(ParallelMergesort, :psort, [self, half])
+        spawn_link(ParallelMergeSort, :psort, [self(), half])
       end)
       |> Enum.map(fn pid ->
         # recieve a message from the pid
@@ -68,11 +68,11 @@ defmodule ParallelMergesort do
             merge(left, right)
           end).()
 
-    send(parent_id, {self, sorted})
+    send(parent_id, {self(), sorted})
   end
 
   def parallel_sort(list) do
-    pid = spawn_link(ParallelMergesort, :psort, [self, list])
+    pid = spawn_link(ParallelMergeSort, :psort, [self(), list])
 
     receive do
       {^pid, sorted} ->
@@ -83,3 +83,5 @@ defmodule ParallelMergesort do
     end
   end
 end
+
+IO.inspect(ParallelMergeSort.sort([1, 6, 3, 4, 2, 5, 20, 14, 13, 7, 10, 8]))
