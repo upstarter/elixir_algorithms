@@ -12,7 +12,9 @@ defmodule ElixirAlgorithms do
       :world
 
   """
-  def hello do
-    :world
+  alias Timed
+
+  def run do
+    Timed.inspect(QuickSort, :sort, [3_999_999, 0, 37, 97, 555, 3_945])
   end
 end
