@@ -1,7 +1,7 @@
 defmodule EventSourcing.AnalysisProgress.EventAggregator do
   def start_link(event) do
     Task.start_link(fn ->
-      # (example, not real code here) Saves to the database
+      # Saves to the database
       AnalysisProgress.save(event)
     end)
   end
