@@ -2,11 +2,11 @@
 iex > binding
 []
 
-iex > name = "blackode"
-# "blackode"
+iex > name = "aionlabs"
+# "aionlabs"
 
 iex > blog = "medium"
 # "medium"
 
 iex > binding
-# [blog: "medium", name: "blackode"]
+# [blog: "medium", name: "aionlabs"]

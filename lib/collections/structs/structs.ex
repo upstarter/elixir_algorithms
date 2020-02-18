@@ -10,8 +10,8 @@ end
 
 # Execution
 # Error
-employee = %Employee{name: "blackode"}
-employee = %Employee{name: "blackode", salary: 12345}
+employee = %Employee{name: "aionlabs"}
+employee = %Employee{name: "aionlabs", salary: 12345}
 # %Employee{name: "john", salary: 12345}
 
 # We can limit the keys to print while we inspect structs using @derive attribute.

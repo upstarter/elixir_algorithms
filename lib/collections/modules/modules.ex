@@ -1,12 +1,15 @@
-# This identifier is equivalent to an atom prefixed by Elixir. So in the defmodule Blackode example Blackode is equivalent to :"Elixir.Blackode"
+# This identifier is equivalent to an atom prefixed by Elixir. So in the defmodule aionlabs
+# example aionlabs is equivalent to :"Elixir.aionlabs"
 
-# When we use String.to_atom "Blackode" it converts it into :Blackode But actually we need something like “Blackode” to Blackode. To do that we need to use Module.concat
+# When we use String.to_atom "aionlabs" it converts it into :aionlabs But actually we need something
+# like “aionlabs” to aionlabs. To do that we need to use Module.concat
 
-String.to_atom("Blackode")
-# :Blackode
-Modul
+String.to_atom("aionlabs")
+# :aionlabs
+Module
 
-# Sometimes, we have to make sure that certain module is loaded before making a call to the function. We are supposed to ensure the module is loaded.
+# Sometimes, we have to make sure that certain module is loaded before making a call to the
+# function. We are supposed to ensure the module is loaded.
 Code.ensure_loaded?(:kernel)
 # true
 Code.ensure_loaded(:kernel)
@@ -14,7 +17,8 @@ Code.ensure_loaded(:kernel)
 # Similarly we are having ensure_compile to check whether the module is compiled or not…
 
 # Executing code Immediately after loading a Module
-# Elixir provides @on_load which accepts atom as function name in the same module or a tuple with function_name and its arity like {function_name, 0}.
+# Elixir provides @on_load which accepts atom as function name in the same module or a tuple with 
+#function_name and its arity like {function_name, 0}.
 
 # Hello module
 defmodule Hello do
@@ -36,7 +40,8 @@ end
 # mix xref callers Module.function
 
 # mix xref callers Poison.decode
-# Prints all callers of the given CALLEE, which can be one of: Module, Module.function, or Module.function/arity.
+# Prints all callers of the given CALLEE, which can be
+# one of: Module, Module.function, or Module.function/arity.
 
 # Examples:
 # mix xref callers ***Module***
