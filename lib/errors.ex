@@ -25,7 +25,7 @@ defmodule Worker do
   end
 end
 
-IO.puts("Report partion success:")
+IO.puts("Report partition success:")
 
 Worker.stream_work()
 |> Enum.take(10)
@@ -58,13 +58,11 @@ defmodule BugError do
 end
 
 # Usage
-
-iex(bug_error.ex)
-
 raise BugError
 # ** (BugError) BUG BUG ..
 # here passing the message dynamic
 raise BugError, message: "I am Bug.."
+
 # ** (BugError) I am Bug..
 
 try do

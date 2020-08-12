@@ -1,5 +1,5 @@
 # Piping Anonymous functions
-# We can pass the anonymous functions in two ways. One is directly using &like following..
+# We can pass the anonymous functions in two ways. One is directly using & like following..
 
 [1, 2, 3, 4, 5]
 |> length()
@@ -23,6 +23,7 @@ Enum.reduce([1, 2, 3], 3, &*/2)
 Enum.reduce([1, 2, 3], 3, &-/2)
 # -1
 Enum.reduce([1, 2, 3], 3, &//2)
+
 # 0.5
 
 sum = fn a, b -> a + b end
